@@ -46,5 +46,6 @@ node scripts/create-stripe-prices.js
 This will print created product and price IDs — copy them into your `.env.local` as `NEXT_PUBLIC_PRICE_*`.
 
 Notes
-- Auth is implemented using Supabase and `@supabase/auth-helpers-nextjs`. The `/app` route is protected by middleware and requires a valid Supabase auth session.
+- Auth is implemented using Supabase. Middleware validates sessions by checking the Supabase access token cookie and using the Admin client.
 - Theme persistence uses `next-themes` in client components; animations use `framer-motion` in client components.
+- Feature-gating is implemented in the App area. See `app/app/layout.tsx`, `app/app/dashboard/page.tsx` and `lib/getSubscriptionForUser.ts` for the gating logic. The dashboard shows tabs for 24H, 7D, 30D, 90D and conditionally shows/hides features and CTAs based on the subscription plan (FREE, STARTER, HUSTLER, ELITE).

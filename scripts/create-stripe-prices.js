@@ -1,5 +1,6 @@
 // Simple script to create Stripe products/prices in test mode.
 // Requires STRIPE_SECRET_KEY in environment.
+
 const Stripe = require('stripe')
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', { apiVersion: '2022-11-15' })
 
